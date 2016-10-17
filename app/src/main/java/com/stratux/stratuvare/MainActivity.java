@@ -9,7 +9,7 @@ Redistribution and use in source and binary forms, with or without modification,
     *
     *     THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 */
-package com.apps4av.avarehelper;
+package com.stratux.stratuvare;
 
 import android.content.ComponentName;
 import android.content.Context;
@@ -30,10 +30,9 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
-import com.apps4av.avarehelper.connections.ConnectionFactory;
-import com.apps4av.avarehelper.storage.Preferences;
-import com.apps4av.avarehelper.utils.GenericCallback;
-import com.apps4av.avarehelper.utils.Logger;
+import com.stratux.stratuvare.connections.ConnectionFactory;
+import com.stratux.stratuvare.utils.GenericCallback;
+import com.stratux.stratuvare.utils.Logger;
 
 import java.io.Serializable;
 import java.util.HashMap;
@@ -47,7 +46,6 @@ public class MainActivity extends ActionBarActivity implements
     private BackgroundService mService;
 
     private HashMap<String, String> mState;
-    private Preferences mPref;
 
     private Fragment[] mFragments = new Fragment[10];
 
@@ -76,8 +74,7 @@ public class MainActivity extends ActionBarActivity implements
         mTextStatus = (TextView)view.findViewById(R.id.main_text_status);
         Logger.setTextView(mTextLog);
         setContentView(view);
-
-        mPref = new Preferences(getApplicationContext());
+        
         /*
          * Start service now, bind later. This will be no-op if service is already running
          */
@@ -149,14 +146,7 @@ public class MainActivity extends ActionBarActivity implements
         else {
             //newly created, compute data
             mState = new HashMap<String, String>();
-            try {
-                int id = mPref.getFragmentIndex();
-                if(id >= 0) {
-                    actionBar.setSelectedNavigationItem(id);
-                }
-            }
-            catch (Exception e) {
-            }
+            mState.put("fragmentIndex", "0");
         }
     }
 
@@ -226,7 +216,6 @@ public class MainActivity extends ActionBarActivity implements
 
         // Store fragment we are showing now
         mState.put("fragmentIndex", Integer.toString(itemPosition));
-        mPref.setFragmentIndex(itemPosition);
 
         switch(itemPosition) {
         

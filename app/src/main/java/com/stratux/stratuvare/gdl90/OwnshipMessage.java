@@ -9,9 +9,9 @@ Redistribution and use in source and binary forms, with or without modification,
     *
     *     THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 */
-package com.apps4av.avarehelper.gdl90;
+package com.stratux.stratuvare.gdl90;
 
-import com.apps4av.avarehelper.utils.Logger;
+import com.stratux.stratuvare.utils.Logger;
 
 /**
  * 
@@ -33,7 +33,7 @@ public class OwnshipMessage extends Message {
     public int mHorizontalVelocity;
     public int mVerticalVelocity;
     
-    public double mAltitude;
+    public int mAltitude;
     
     boolean mIsTrackHeadingValid;
     boolean mIsTrackHeadingTrueTrackAngle;
@@ -78,7 +78,7 @@ public class OwnshipMessage extends Message {
             /*
              * In meters
              */
-            mAltitude = (double)alt / 3.28084;
+            mAltitude = (int)((double)alt / 3.28084);
         }
 
         /*

@@ -15,7 +15,7 @@
         android:layout_below="@+id/main_text_status"
         android:id="@+id/detailFragment"  
         android:layout_width="match_parent"  
-        tools:context="com.apps4av.avarehelper.MainActivity"
+        tools:context="com.stratux.stratuvare.MainActivity"
         android:layout_height="wrap_content" > 
     </FrameLayout>  
     

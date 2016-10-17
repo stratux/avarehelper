@@ -10,19 +10,19 @@ Redistribution and use in source and binary forms, with or without modification,
     *     THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 */
 
-package com.apps4av.avarehelper.connections;
+package com.stratux.stratuvare.connections;
 
 import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothDevice;
 import android.bluetooth.BluetoothSocket;
 import android.content.Context;
 
-import com.apps4av.avarehelper.nmea.BODPacket;
-import com.apps4av.avarehelper.nmea.GGAPacket;
-import com.apps4av.avarehelper.nmea.RMBPacket;
-import com.apps4av.avarehelper.nmea.RMCPacket;
-import com.apps4av.avarehelper.utils.GenericCallback;
-import com.apps4av.avarehelper.utils.Logger;
+import com.stratux.stratuvare.nmea.BODPacket;
+import com.stratux.stratuvare.nmea.GGAPacket;
+import com.stratux.stratuvare.nmea.RMBPacket;
+import com.stratux.stratuvare.nmea.RMCPacket;
+import com.stratux.stratuvare.utils.GenericCallback;
+import com.stratux.stratuvare.utils.Logger;
 
 import org.json.JSONObject;
 
@@ -69,7 +69,7 @@ public class BlueToothConnectionOut extends Connection {
                 while(isRunning()) {
 
                     /*
-                     * Read data from Avare
+                     * Read data from Stratuvare
                      */
                     String recvd = getDataFromHelper();
 

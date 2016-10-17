@@ -1,4 +1,4 @@
-package com.apps4av.avarehelper.nmea;
+package com.stratux.stratuvare.nmea;
 
 import java.util.Locale;
 

@@ -9,7 +9,7 @@ Redistribution and use in source and binary forms, with or without modification,
     *
     *     THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 */
-package com.apps4av.avarehelper;
+package com.stratux.stratuvare;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -23,10 +23,10 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.Spinner;
 
-import com.apps4av.avarehelper.connections.Connection;
-import com.apps4av.avarehelper.connections.ConnectionFactory;
-import com.apps4av.avarehelper.storage.Preferences;
-import com.apps4av.avarehelper.storage.SavedEditText;
+import com.stratux.stratuvare.connections.Connection;
+import com.stratux.stratuvare.connections.ConnectionFactory;
+import com.stratux.stratuvare.storage.Preferences;
+import com.stratux.stratuvare.storage.SavedEditText;
 
 import java.util.List;
 

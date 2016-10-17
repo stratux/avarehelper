@@ -10,13 +10,13 @@ Redistribution and use in source and binary forms, with or without modification,
  *     THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-package com.apps4av.avarehelper.connections;
+package com.stratux.stratuvare.connections;
 
 import android.content.Context;
 import android.os.Handler;
 import android.os.Message;
 
-import com.apps4av.avarehelper.utils.GenericCallback;
+import com.stratux.stratuvare.utils.GenericCallback;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -145,7 +145,7 @@ public class GPSSimulatorConnection extends Connection {
 
                     sendDataToHelper(object.toString());
 
-                    // See if we got anything from Avare, but since it will block, do not bombard
+                    // See if we got anything from Stratuvare, but since it will block, do not bombard
                     mHandler.removeMessages(0);
                     mHandler.sendEmptyMessage(0);
 
@@ -168,7 +168,7 @@ public class GPSSimulatorConnection extends Connection {
     }
 
     /**
-     * Handler to get data from Avare
+     * Handler to get data from Stratuvare
      */
     Handler mHandler = new Handler(){
         @Override

@@ -1,4 +1,4 @@
-package com.apps4av.avarehelper.utils;
+package com.stratux.stratuvare.utils;
 
 import net.sf.jweather.metar.Metar;
 import net.sf.jweather.metar.MetarParser;
@@ -64,6 +64,7 @@ public class MetarFlightCategory {
         if((ceilingFt >= 3000 || (!isCeiling)) && (visibility > 5)) {
             return "VFR";
         }
+
         return "Unknown";
     }
 }

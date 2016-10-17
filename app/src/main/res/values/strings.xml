@@ -12,15 +12,15 @@ Redistribution and use in source and binary forms, with or without modification,
 -->
 <resources>
 
-    <string name="app_name">Avare External I/O Plugin</string>
+    <string name="app_name">Stratuvare External I/O Plugin</string>
     <string name="Connect">Connect</string>
     <string name="Start">Start</string>
     <string name="Save">Save</string>
     <string name="Saving">Saving</string>
     <string name="Stop">Stop</string>
-    <string name="Avare">Avare</string>
-    <string name="Connected">Avare Connected!</string>
-    <string name="NotConnected">Avare Not Connected!</string>
+    <string name="Stratuvare">Stratuvare</string>
+    <string name="Connected">Stratuvare Connected!</string>
+    <string name="NotConnected">Stratuvare Not Connected!</string>
     <string name="ADSB">ADSB</string>
     <string name="ADSBWifi">ADSB WiFi</string>
     <string name="XPlane">XPlane</string>
@@ -62,5 +62,5 @@ Redistribution and use in source and binary forms, with or without modification,
     <string name="Help">Help</string>
     <string name="Preferences">Preferences</string>
     <string name="CrashText">To help improve the app, please submit this report to us via email.</string>
-    <string name="CrashLabel">Avare IO has stopped unexpectedly!</string>
+    <string name="CrashLabel">Stratuvare IO has stopped unexpectedly!</string>
 </resources>

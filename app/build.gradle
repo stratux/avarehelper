@@ -5,7 +5,7 @@ android {
     buildToolsVersion "22.0.1"
 
     defaultConfig {
-        applicationId "com.apps4av.avarehelper"
+        applicationId "com.stratux.stratuvare"
         minSdkVersion 12
         targetSdkVersion 22
     }

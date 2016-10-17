@@ -10,23 +10,23 @@ Redistribution and use in source and binary forms, with or without modification,
     *     THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 */
 
-package com.apps4av.avarehelper.connections;
+package com.stratux.stratuvare.connections;
 
-import com.apps4av.avarehelper.gdl90.BasicReportMessage;
-import com.apps4av.avarehelper.gdl90.Constants;
-import com.apps4av.avarehelper.gdl90.FisBuffer;
-import com.apps4av.avarehelper.gdl90.Id413Product;
-import com.apps4av.avarehelper.gdl90.Id6364Product;
-import com.apps4av.avarehelper.gdl90.LongReportMessage;
-import com.apps4av.avarehelper.gdl90.OwnshipGeometricAltitudeMessage;
-import com.apps4av.avarehelper.gdl90.OwnshipMessage;
-import com.apps4av.avarehelper.gdl90.Product;
-import com.apps4av.avarehelper.gdl90.TrafficReportMessage;
-import com.apps4av.avarehelper.gdl90.UplinkMessage;
-import com.apps4av.avarehelper.nmea.Ownship;
-import com.apps4av.avarehelper.nmea.RTMMessage;
-import com.apps4av.avarehelper.storage.Preferences;
-import com.apps4av.avarehelper.utils.MetarFlightCategory;
+import com.stratux.stratuvare.gdl90.BasicReportMessage;
+import com.stratux.stratuvare.gdl90.Constants;
+import com.stratux.stratuvare.gdl90.FisBuffer;
+import com.stratux.stratuvare.gdl90.Id413Product;
+import com.stratux.stratuvare.gdl90.Id6364Product;
+import com.stratux.stratuvare.gdl90.LongReportMessage;
+import com.stratux.stratuvare.gdl90.OwnshipGeometricAltitudeMessage;
+import com.stratux.stratuvare.gdl90.OwnshipMessage;
+import com.stratux.stratuvare.gdl90.Product;
+import com.stratux.stratuvare.gdl90.TrafficReportMessage;
+import com.stratux.stratuvare.gdl90.UplinkMessage;
+import com.stratux.stratuvare.nmea.Ownship;
+import com.stratux.stratuvare.nmea.RTMMessage;
+import com.stratux.stratuvare.storage.Preferences;
+import com.stratux.stratuvare.utils.MetarFlightCategory;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -41,14 +41,14 @@ import java.util.LinkedList;
  */
 public class BufferProcessor {
 
-    com.apps4av.avarehelper.gdl90.DataBuffer dbuffer =
-            new com.apps4av.avarehelper.gdl90.DataBuffer(16384);
-    com.apps4av.avarehelper.nmea.DataBuffer nbuffer = 
-            new com.apps4av.avarehelper.nmea.DataBuffer(16384);
-    com.apps4av.avarehelper.gdl90.Decode decode = 
-            new com.apps4av.avarehelper.gdl90.Decode();
-    com.apps4av.avarehelper.nmea.Decode ndecode = 
-            new com.apps4av.avarehelper.nmea.Decode();
+    com.stratux.stratuvare.gdl90.DataBuffer dbuffer =
+            new com.stratux.stratuvare.gdl90.DataBuffer(16384);
+    com.stratux.stratuvare.nmea.DataBuffer nbuffer = 
+            new com.stratux.stratuvare.nmea.DataBuffer(16384);
+    com.stratux.stratuvare.gdl90.Decode decode = 
+            new com.stratux.stratuvare.gdl90.Decode();
+    com.stratux.stratuvare.nmea.Decode ndecode = 
+            new com.stratux.stratuvare.nmea.Decode();
     Ownship nmeaOwnship = new Ownship();
 
     /**
@@ -72,7 +72,7 @@ public class BufferProcessor {
         byte[] buf;
         
         while(null != (buf = nbuffer.get())) {
-            com.apps4av.avarehelper.nmea.Message m = ndecode.decode(buf);
+            com.stratux.stratuvare.nmea.Message m = ndecode.decode(buf);
             
             if(m instanceof RTMMessage) {
                 
@@ -127,7 +127,7 @@ public class BufferProcessor {
             /*
              * Get packets, decode
              */
-            com.apps4av.avarehelper.gdl90.Message m = decode.decode(buf);
+            com.stratux.stratuvare.gdl90.Message m = decode.decode(buf);
             /*
              * Post on UI thread.
              */
@@ -215,7 +215,7 @@ public class BufferProcessor {
                         // invalid
                         continue;
                     }
-                    object.put("altitude", (double)((OwnshipGeometricAltitudeMessage)m).mAltitudeWGS84);
+                    object.put("altitude", (double) altitude);
                     object.put("time", (long) m.getTime());
                 } catch (JSONException e1) {
                     continue;
@@ -233,7 +233,7 @@ public class BufferProcessor {
                 if(null == fis) {
                     continue;
                 }
-                // Get the tower longitude/latitude from the FisBuffer for passing to Avare
+                // Get the tower longitude/latitude from the FisBuffer for passing to Stratuvare
                 lat = fis.getLat();
                 lon = fis.getLon();
                 TISid = fis.getTISid();
@@ -287,7 +287,7 @@ public class BufferProcessor {
                         long time = (long)pn.getTime().getTimeInMillis();
                         
                         /*
-                         * Clear garbage spaces etc. Convert to Avare format
+                         * Clear garbage spaces etc. Convert to Stratuvare format
                          */
 
                         try {
